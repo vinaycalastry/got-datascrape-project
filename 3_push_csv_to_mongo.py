@@ -123,7 +123,7 @@ def main():
                 
             insert_characterlist_mongo(cast)
         except Exception as e:
-            print('Error has occurred' + str(e))
+            print('Error has occurred: ' + str(e))
 
 
 
