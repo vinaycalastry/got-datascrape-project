@@ -2,3 +2,5 @@ client_secret.json
 creds.py
 __pycache__
 Loaders/creds.py
+GotScrapeClass/characters/
+.vscode
