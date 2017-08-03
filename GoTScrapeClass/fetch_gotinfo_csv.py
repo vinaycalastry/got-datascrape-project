@@ -1,4 +1,4 @@
-from parsewikia import FetchWikiaInfo
+from lib.parsewikia import FetchWikiaInfo
 
 def main():
     file_name = 'charURL.csv' 

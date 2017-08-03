@@ -4,8 +4,6 @@ from bs4 import BeautifulSoup, NavigableString
 import pandas as pd
 import os, sys
 
-
-
 class FetchWikiaInfo():
     """ To create csv and create list""" 
     def __init__(self, wikia_url):
@@ -26,9 +24,8 @@ class FetchWikiaInfo():
         #Infobox
         infoBox = soup.findAll("aside", attrs={'class': 'portable-infobox pi-background pi-theme-wikia pi-layout-default'})
 
-        infoDict = {}
-        
-        nv = []
+        infoDict = {}        
+        infoList = []
 
         for info in infoBox:
             infoDict["FullName"] = info.find("", attrs = {'class': 'pi-item pi-item-spacing pi-title'}).text
@@ -44,7 +41,7 @@ class FetchWikiaInfo():
                 infoDict[name] = value
             
         for (key,value) in infoDict.items():
-            nv.append([key, value])
+            infoList.append([key, value])
 
 
-        return nv
+        return infoList
