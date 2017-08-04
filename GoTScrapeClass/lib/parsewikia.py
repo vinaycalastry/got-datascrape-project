@@ -30,15 +30,16 @@ class FetchWikiaInfo():
         for info in infoBox:
             infoDict["FullName"] = info.find("", attrs = {'class': 'pi-item pi-item-spacing pi-title'}).text
             
-            image = str(info.find("", attrs = {'class': 'pi-image-thumbnail'}))
-            infoDict["Image"] = image[image.find('src="')+5 : image.find(' srcset="')-2]
             
-            infoDict["URL"] = self.wikia_url
             
             for others in info.findAll("div", attrs = {'class': 'pi-item pi-data pi-item-spacing pi-border-color'}):
                 name = str(others.find("h3", attrs = {'class': 'pi-data-label pi-secondary-font'}).text)
                 value = str(others.find("div", attrs = { 'class': 'pi-data-value pi-font'}).text)
                 infoDict[name] = value
+
+            image = str(info.find("", attrs = {'class': 'pi-image-thumbnail'}))
+            infoDict["Image"] = image[image.find('src="')+5 : image.find(' srcset="')-2]            
+            infoDict["URL"] = self.wikia_url
             
         for (key,value) in infoDict.items():
             infoList.append([key, value])
